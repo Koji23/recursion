@@ -9,7 +9,15 @@ var getElementsByClassName = function(className) {
   var results = [];
 
   function recursiveHelper(node){
-  	if(node.className == className){
+  	var bool = false;
+  	if(node.classList){
+  	  for(var i=0; i<node.classList.length; i++){
+  	    if(node.classList[i] == className){
+  	  	  bool = true;
+  	    }
+  	  }
+  	}
+  	if(bool){
   	  results.push(node);
   	}
   	for(var i=0; i<node.childNodes.length; i++){
