@@ -9,22 +9,18 @@ var getElementsByClassName = function(className) {
   var results = [];
 
   function recursiveHelper(node){
-  	var bool = false;
   	if(node.classList){
   	  for(var i=0; i<node.classList.length; i++){
   	    if(node.classList[i] == className){
-  	  	  bool = true;
+  	  	  results.push(node);
   	    }
   	  }
-  	}
-  	if(bool){
-  	  results.push(node);
   	}
   	for(var i=0; i<node.childNodes.length; i++){
   	    recursiveHelper(node.childNodes[i]);	
   	  }
   }
-  recursiveHelper(document.documentElement);
+  recursiveHelper(document.body);
   return results;
 };
 
