@@ -12,7 +12,7 @@ var stringifyJSON = function(obj) {
   }else if(typeof obj === 'number'){
   	return String(obj);
   }else if(typeof obj === 'string'){
-  	//strings should get redundent quotes when stringified (necessary for object keys)
+  	//strings should get redundent quotes when stringified (necessary for parsing)
     return '"' + obj + '"';
   }else if(typeof obj === 'undefined' || typeof obj === 'function'){
     //'functions' and 'undefined' objects are not stringifiable, they should return undefined
